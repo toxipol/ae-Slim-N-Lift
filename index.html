@@ -1,0 +1,301 @@
+<!doctype html>
+<html>
+
+<head>
+
+<script src="js/jquery.min.js"></script>
+
+    <script>
+    function set_validator_errors(){
+        orderValidator.errorTitle = 'Please correct the following errors'; 
+
+        orderValidator.errorNameField = 'Your Name'; 
+        orderValidator.errorNameMess = 'Enter your name'; 
+        
+        orderValidator.errorPhoneField = 'Your phone'; 
+        orderValidator.errorPhoneMess = 'Enter the correct phone number'; 
+        
+        orderValidator.errorAddress = 'Enter the correct address'; 
+        orderValidator.errorRequired = 'required field'; 
+        orderValidator.errorMaxLength = 'valid maximum {1} character'; 
+        orderValidator.errorMinLength = 'valid minimum {1} character'; 
+        orderValidator.errorEmailField = 'E-mail';
+        orderValidator.errorEmail = 'Invalid email specified';
+        }
+    </script>
+    
+<script>
+
+
+
+    
+    setOffer: function (offerId) {
+        if (offerId == this._setOfferId) {
+            return ;
+        }
+        this._setOfferId = offerId;
+        if (offerId) {
+            var offer = app.offers[offerId];
+            var previousOffer = app.currentOffer;
+            app.currentOffer = offer;
+            var event = this.jq.Event("offerchange");
+            event.previousOffer = previousOffer;
+            event.currentOffer = app.currentOffer;
+            this.jq(document).trigger(event);
+            this.updatePage(offer);
+        } else {
+            $('input[name=country]').val('');
+        }
+    },
+    
+    updatePage: function(offer) {
+        $('x-newprice').html(offer.price);
+        $('x-oldprice').html(offer.price2);
+        $('x-currency').html(offer.currency.name);
+        $('input[name=offer], select[name=offer]').val(offer.id);
+        $('input[name=country]').val(offer.country.code);
+    },
+
+    blockForm: function() {
+        // Блокируем кнопки при отправке формы
+        $('input[type=submit]', $(this)).prop( 'disabled', true ).attr( 'disabled', true );
+        $('button', $(this)).prop( 'disabled', true ).attr( 'disabled', true );
+        app.incompleteOrder.lock = true;
+        clearTimeout(app.incompleteOrder.timer);
+    },
+
+    unblockForm: function() {
+        $('input[type=submit]', $(this)).prop( 'disabled', false ).attr( 'disabled', false );
+        $('button[type=submit]', $(this)).prop( 'disabled', false ).attr( 'disabled', false );
+        app.incompleteOrder.lock = false;
+        clearTimeout(app.incompleteOrder.timer);
+    }
+
+ };
+
+
+</script><script src="js/form.validate.js"></script>
+<script src="js/form.incomplete.js"></script>
+<script src="js/main2.js"></script>
+
+
+
+
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=480">
+    <script src="js/jquery-2.2.4.min.js"></script>
+    	<link rel="shortcut icon" href="images/favicon.png" type="image/png">
+    <link href="css/css.css" rel="stylesheet">
+    <link media="all" href="css/main.css" rel="stylesheet" type="text/css">
+    <script type="text/javascript" src="js/count.js"></script>
+    <script type="text/javascript" src="js/init.js"></script>
+
+</head>
+
+<body>
+    <style type="text/css">
+    a:hover {
+        opacity: 0.7;
+    }
+    </style>
+    <div class="main-wrap">
+        <div class="section block-1">
+            <h3>Slim'N Lift <br> <span>Men's corrective shirt
+ </span> </h3>
+            <h4>sale <span>50%</span></h4>
+            <div class="container-1 clearfix">
+                <div class="cost new-cost">
+                    <span class=""><x-newprice>139</x-newprice>  </span>
+                    <small><span class=""><x-currency>AED</x-currency></span></small>
+                </div>
+                <div class="cost old-cost">
+                    Old Price:
+                    <br>
+                    <span><span class=""><x-oldprice>278</x-oldprice> </span>
+                    <span class=""><x-currency>AED</x-currency></span></span>
+                </div>
+            </div>
+            <div class="container-2">
+                <div class="timer">
+                    <p>Time left to buy:</p>
+                   <script src="js/09cda0cf91a49e413a3fb95928447a1c.js"></script>
+                </div>
+                <div class="center scroll-to"><a href="#form" class="button-m"></a></div>
+            </div>
+        </div>
+        <div class="section block-2 wave-top wave-bot">
+            <h2> Men's corrective shirt <span> Slim’N Lift</span></h2>
+            <ul>
+                <li> will make you <b> tighten and more attractive </b> by tightening sagging sides and belly </li>
+                <li> The ribbed base of the shirt removes the <b> side folds </b> and creates the appearance of a relief press </li>
+               
+                <li> Doesn't impede <b> the movement of blood </b> through the body </li>
+                <li> The shirt will fit perfectly under any shirt or T-shirt </li>
+            </ul>
+        </div>
+        <div class="section block-3">
+            <h2><b>
+WHAT FOR </b> SHOULD WEAR Slim’N Lift </h2>
+            <div class="adv adv-1">
+                <h3> For health </h3>
+                <ul>
+                    <li> Support and fixation of the abdominal muscles </li>
+                    <li> Removes your extra pounds </li>
+                    <li> Unloading the heart </li>
+                    <li> Respiratory system restoration </li>
+                    <li> Posture Correction </li>
+                </ul>
+            </div>
+            <div class="adv adv-2">
+               
+<h3 style="color: #fff;"> For sports </h3>
+                <ul style="color: #fff;">
+                    <li> Efficiency from training abdominal muscles increases several times </li>
+                    <li> Efficiency from training back muscles is increased by 2 times </li>
+                    <li> Sweating during running is doubled </li>
+                    <li> Fixation of the abs and back muscles during heavy physical exertion </li>
+                </ul>
+            </div>
+            <div class="adv adv-3">
+                
+<h3> For everyday life </h3>
+                <ul>
+                    <li> Restoring normal metabolism </li>
+                    <li> Improving performance, which can have a positive effect on work and business success </li>
+                    <li> Moderation of a figure </li>
+                </ul>
+            </div>
+        </div>
+        <div class="section block-4 wave-bot">
+            
+<h2> Fabric composition <span> Slim’N Lift </span> </h2>
+            <img src="images/mat.jpg" alt="Slim’N Lift">
+            <div> The shirt is made of silky nylon and elastic lycra, it is not visible under a T-shirt and shirt, and does not cause discomfort with prolonged wear. </div>
+        </div>
+        <div class="section block-5">
+            
+<h2> Customer Reviews </h2>
+            <div class="rew clearfix">
+                <img src="images/rew-1.jpg" alt="Men's Slim’N Lift for MEN">
+                <strong> Abdulkahhar, 65 year </strong>
+                <p>
+Hello. I received your package a month ago. I am 65 years old. With a height of 173 cm, weighed 85 kg and experienced some problems with being overweight. I ordered a Slim’N Lift for men shirt. It came 10 days after the order, made payment by mail. The first couple of days I had problems getting into it, because it is somewhat uncomfortable. Within a week, I felt improvement. The back pain is gone, and the weight is slowly leaving. Very satisfied.</p>
+            </div>
+            <div class="rew clearfix">
+                <img src="images/rew-2.jpg" alt="Slim’N Lift for MEN">
+                <strong>Danis, 44 year</strong>
+                <p> This shirt works very well. I am a pretty big guy and they sent me a medium. I was not too clear how to choose the size, I do not remember that there is an opportunity. Sometimes it’s a little complicated, but as soon as everything rests on it, as they say. This is a great confidence enhancer for me.</p>
+            </div>
+            <div class="rew clearfix">
+                <img src="images/rew-3.jpg" alt="Slim’N Lift for MEN">
+                <strong>Majd, 24 year</strong>
+                <p>I recently lost a lot of weight and I don’t have a tight body, so this computer clothes really helps for everyday use if you have human lumps or loose fats ... especially since I'm a little on the ridiculous side. I really like the way my body tenses up when I wear this with polo shirts ... works great.</p>
+            </div>
+        </div>
+        <div class="section block-6">
+            <h2>Shipping and payment
+</h2>
+            <div class="container">
+                <div class="deliv-item">
+                    <span class="deliv-icon deliv-pic-1"></span>
+                    <p>
+Delivery by mail, parcels of the 1st class, from 1 to 3 working days.</p>
+                </div>
+                <div class="deliv-item">
+                    <span class="deliv-icon deliv-pic-2"></span>
+                    <p>
+No prepayments! Orders are paid directly upon receipt of the order </p>
+                </div>
+                <div class="deliv-item">
+                    <span class="deliv-icon deliv-pic-3"></span>
+                    <p>
+Making an order in our online store you get a 50% discount</p>
+                </div>
+            </div>
+        </div>
+        <div class="section block-1" id="delivery">
+            <h3>Slim'N Lift <br> <span>Men's corrective shirt
+ </span> </h3>
+            <h4>sale <span>50%</span></h4>
+            <div class="container-1 clearfix">
+                <div class="cost new-cost">
+                    <span class=""><x-newprice>139</x-newprice>  </span>
+                    <small><span class=""><x-currency>AED</x-currency></span></small>
+                </div>
+                <div class="cost old-cost">
+                    Old price:
+                    <br>
+                    <span><span class=""><x-oldprice>278</x-oldprice> </span>
+                    <span class=""><x-currency>AED</x-currency></span></span>
+                </div>
+            </div>
+            <div class="container-2">
+                <div class="order">
+                    <p class="center">
+                        <strong>Leave Order
+</strong>
+                        <br>
+and we will contact you to clarify the details of the &nbsp; order
+                    </p>
+                    <form action="https://healthbestblog.space/cpatl/api.php" method="post" id="form">
+					    
+    <select name="offer" class="form-control country_chang" style="display: none;">
+        <option data-country-code="AE" selected="selected" value="21764">
+            ОАЭ        </option>
+    </select>
+
+                            <div>
+                            <input type="text" name="name" placeholder="Enter your Name" required>
+                        </div>
+                        <div>
+                            <input class="input-phone" type="tel" name="phone" id="phone" placeholder="Enter your Phone" required>
+                        </div>
+                        <div class="center" id="zakazat">
+                            <a href="#" class="button-m">
+                                <button type="submit" class="button-m"></button>
+                            </a>
+                        </div>
+                                         <input type="hidden" name="stream_hid" value="maVhlgq6">
+      <input type="hidden" name="offer_id" value="3155">
+
+      
+      <input type="hidden" name="country" value="AE"> 
+
+      <input type="hidden" name="sid1" value="ads">
+      <input type="hidden" name="sid2" value="adsTiK">
+      <input type="hidden" name="sid3" value="alex3">
+      <input type="hidden" name="redirect_url" value="https://amazinghealth.github.io/germitox-ita/success/index.html">
+                    </form>
+                </div>
+            </div>
+        </div>
+        
+        </div>
+    
+    <script type="text/javascript">
+    $(document).ready(function() {
+        $(".scroll-to").on("click", "a", function(event) {
+            event.preventDefault();
+            var id = $(this).attr('href'),
+                top = $(id).offset().top;
+            $('body,html').animate({ scrollTop: top }, 1500);
+        });
+    });
+    </script>
+    
+<center style="margin: 30px auto"><p>OOO "OSTROV PRODAZH" OGRN: 1197746695530 VAT: 7708365555</p>
+<p>129090, Moscow, pereulok Zhivarev, house 8, stroenie 3, flat 16 email: ostrov.prodazh@mail.com Skype: ostrov.prodazh@mail.com</p> 
+
+
+    
+            <p class="conf-link doclinks">
+        <a class="nav-link" href="" onclick="window.open('/policy_en.php'); return false;">Privacy Policy</a>
+          |
+        <a class="nav-link" href="" onclick="window.open('/terms_en.php'); return false;">Terms & Conditions</a>
+      </p>
+      
+    
+</center>
+</body>
+
+</html>
